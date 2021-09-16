@@ -21,7 +21,7 @@ if (widget) {
 }
 function onMessage(e) {
   const data = e.data
-  if (!data || (data && data.type !== 'sycret')) {
+  if (!data || (data && (data.type !== 'sycret'))) {
     return
   }
   const widget = getWidget()
@@ -57,10 +57,10 @@ function parseQuery(options) {
 
 function openSycretCertificate(options) {
   var query = parseQuery(options)
-  window.open(`https://certificate-react.vercel.app/?${query}`, '_blank')
+  window.open(`https://sycret.ru/test/onlinesale/?${query}`, '_blank')
 }
 
-function setCoords(frame, position) {
+function setCoords(frame, position, width, height) {
   if (position === 'top') {
     frame.style.top = 0
     frame.style.left = 0
@@ -68,17 +68,19 @@ function setCoords(frame, position) {
     frame.style.width = '100%'
     frame.style.height = Math.min(height, window.innerHeight) + 'px'
   } else if (position === 'bottom') {
+    const h = Math.min(height, window.innerHeight)
     frame.style.bottom = 0
     frame.style.left = 0
     frame.style.right = 0
     frame.style.width = '100%'
-    frame.style.height = Math.min(height, window.innerHeight) + 'px'
+    frame.style.height = h + 'px'
   } else if (position === 'left') {
+    const w = Math.min(width, window.innerWidth);
     frame.style.bottom = 0
     frame.style.top = 0
     frame.style.height = '100%'
     frame.style.left = 0
-    frame.style.width = Math.min(width, window.innerWidth) + 'px'
+    frame.style.width = w + 'px'
   } else {
     frame.style.bottom = 0
     frame.style.top = 0
@@ -88,10 +90,25 @@ function setCoords(frame, position) {
   }
 }
 
+function removeFrame() {
+  console.log("remove")
+  const frame = document.querySelector("#wrapper-sycret-frame")
+  if (frame) {
+    frame.remove()
+  }
+}
+
 function openSycretFrame(options) {
   window.removeEventListener('resize', onResize)
   window.removeEventListener('message', onMessage)
-
+  window.addEventListener("message", (event) => {
+    const data = event.data || {}
+    console.log({data})
+    if (data.type === "sycret" && data.status === "close") {
+      removeFrame()
+    }
+  })
+  
   const { width, height, position, ...queryObj } = options
   console.log({ options, position })
   const div = document.createElement('div')
@@ -105,16 +122,12 @@ function openSycretFrame(options) {
   div.style.zIndex = 9999
   div.setAttribute('id', 'wrapper-sycret-frame')
   const query = parseQuery(queryObj)
-  frame.setAttribute('src', `https://certificate-react.vercel.app/?${query}`)
+  frame.setAttribute('src', `https://sycret.ru/test/onlinesale/?${query}&close=1`)
   frame.setAttribute('frameborder', `no`)
   frame.style.position = 'absolute'
-  frame.style.boxShadow =
-    'rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px'
   frame.addEventListener('click', (e) => e.stopPropagation())
-  div.addEventListener('click', (e) => {
-    div.remove()
-  })
-  setCoords(frame, position)
+  div.addEventListener('click', removeFrame)
+  setCoords(frame, position, width, height)
   div.appendChild(frame)
   document.body.appendChild(div)
 }

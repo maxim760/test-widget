@@ -1,0 +1,13 @@
+.sycret-close-icon::after {
+  content: "\00d7"; /* This will render the 'X' */
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: inline-block;
+  color: rgb(253, 19, 19);
+  transition: transform 0.2s ease-in;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
