@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <section>
+    <h2 class="title">Практическое задание №1: Тег &lt;frameset&gt;</h2>
+    <div style="display: flex;">
+      <iframe style="width: 300px" src="menu.html" name="Фрейм 1"></iframe>
+      <div style="display: flex; flex-grow: 1;flex-direction: column;">
+        <iframe height="80" src="title.html" name="Фрейм 2"></iframe>
+        <iframe id="content-frame" style="height: 400px;" src="content1.html" name="content-frame"></iframe>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrapper-center" style="flex-direction: column;">
+      <h2 class="title">Мой фрэйм</h2>
+      <div style="max-width:95vw;width: 650px;">
+        <iframe id="sycret-widget" style="width: 100%"
+          src="https://sycret.ru/test/onlinesale/?apikey=61815a4b61fd46d8a2939040e2177677&blur=10&url=https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"></iframe>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>КНОПКА ПРОВЕРКА</h2>
+    <div class="wrapper-center">
+
+      <button
+        style="background: transparent;width:400px;font-weight: bold;color: blue; border: 1px solid blue; border-radius: 5px; padding: 10px"
+        onclick="openSycretCertificate({apikey:'61815a4b61fd46d8a2939040e2177677', blur: 10})">К
+        сертификатам
+      </button>
+    </div>
+  </section>
+  <section>
+    <h2>КНОПКА ПРОВЕРКА 2 фрэйм справа</h2>
+    <div class="wrapper-center">
+
+      <button
+        style="background: transparent;width:400px;font-weight: bold;color: blue; border: 1px solid blue; border-radius: 5px; padding: 10px"
+        onclick="openSycretFrame({apikey:'61815a4b61fd46d8a2939040e2177677', blur: 10, position: 'right', width: '360'})">К
+        сертификатам
+      </button>
+    </div>
+  </section>
+  <section>
+    <h2>КНОПКА ПРОВЕРКА 2 фрэйм сверху</h2>
+    <div class="wrapper-center">
+
+      <button
+        style="background: transparent;width:400px;font-weight: bold;color: blue; border: 1px solid blue; border-radius: 5px; padding: 10px"
+        onclick="openSycretFrame({apikey:'61815a4b61fd46d8a2939040e2177677', blur: 10, position: 'top', height: '350px'})">К
+        сертификатам
+      </button>
+    </div>
+  </section>
+  <section>
+    <h2>КНОПКА ПРОВЕРКА 2 фрэйм cлева</h2>
+    <div class="wrapper-center">
+
+      <button
+        style="background: transparent;width:400px;font-weight: bold;color: blue; border: 1px solid blue; border-radius: 5px; padding: 10px"
+        onclick="openSycretFrame({apikey:'61815a4b61fd46d8a2939040e2177677', blur: 10, position: 'left', width: '600'})">К
+        сертификатам
+      </button>
+    </div>
+  </section>
+  <section>
+    <h2>КНОПКА ПРОВЕРКА 2 фрэйм снизу</h2>
+    <div class="wrapper-center">
+
+      <button
+        style="background: transparent;width:400px;font-weight: bold;color: blue; border: 1px solid blue; border-radius: 5px; padding: 10px"
+        onclick="openSycretFrame({apikey:'61815a4b61fd46d8a2939040e2177677', blur: 10, position: 'bottom', height: '500'})">К
+        сертификатам
+      </button>
+    </div>
+  </section>
+  <section>
+    <h2 class="title">Практическое задание №2: Закладки (якоря)</h2>
+    <p id="p1">
+      1 абзац Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iure autem, asperiores dolore reprehenderit
+      culpa atque modi ex sit impedit blanditiis, expedita quos. Non error tempora sed molestiae libero, eos vel placeat
+      eaque quisquam officiis fuga necessitatibus eum quaerat fugit iusto facere ratione. Expedita, nesciunt blanditiis!
+      Fugit, blanditiis maxime qui dolorem odio alias quae? Itaque nostrum sunt architecto ullam, modi reiciendis odio
+      labore sint expedita nemo numquam praesentium commodi nobis reprehenderit. Laudantium facilis repellendus libero
+      in commodi tempore provident quos facere a dolores animi sint repellat recusandae praesentium, eos soluta ratione,
+      atque quibusdam nemo id quisquam deleniti. Ipsa libero distinctio cumque magnam ducimus labore facilis. Amet,
+      adipisci consequatur sint dolore excepturi tenetur at animi neque odio maiores recusandae quos vitae
+      necessitatibus officia asperiores. Esse, sint distinctio illum necessitatibus magni iste accusantium suscipit
+      veniam perspiciatis, beatae, eaque quisquam quasi nulla impedit. Ut perferendis autem explicabo dolorum sint
+      veritatis aperiam enim ipsum expedita consectetur facilis aspernatur fugit nihil dignissimos pariatur iure
+      obcaecati adipisci quis perspiciatis, qui esse aliquam molestiae itaque non! Deserunt possimus laboriosam
+      molestiae nulla quasi tempore facere consequatur fugit omnis dignissimos mollitia expedita labore natus, fugiat
+      culpa delectus! Quia earum culpa nostrum ea, obcaecati est numquam repellendus aliquid unde officia id magnam!
+      Deserunt animi nam explicabo, quis in, cumque sit temporibus, dolorum ipsa autem similique dicta amet molestiae
+      illo ea numquam repudiandae minima commodi voluptates! Fugit aliquid quod nihil doloribus quae eligendi maiores
+      asperiores excepturi. Ratione iure repudiandae iusto. Iusto nostrum rem doloremque exercitationem debitis sed
+      voluptas, voluptates nobis. Soluta itaque sunt deserunt molestias corporis accusamus quae quo voluptates suscipit
+      in id minima, ipsam dolore, officia, praesentium animi perspiciatis. Architecto quam voluptatibus iure non,
+      eveniet saepe cumque neque eos explicabo, ipsam ratione accusamus quo exercitationem. Sit quia blanditiis ex
+      adipisci, exercitationem itaque unde, dolorem veritatis sed voluptates architecto ducimus repellat corporis esse.
+      In possimus et hic quo doloremque neque laboriosam odio tempora soluta fugit fugiat est ab, voluptatibus itaque
+      aperiam velit omnis ea alias? Quisquam pariatur incidunt quos libero nostrum dicta deleniti sint?
+    </p>
+    <p id="p2">
+      2 абзац Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores velit consequatur exercitationem sequi
+      ullam delectus debitis vel sunt quae temporibus vitae perspiciatis animi qui eius tempore aliquam eum, accusantium
+      nihil excepturi. Quos, quisquam. Corrupti atque laudantium, magnam modi tenetur aperiam dolorum reiciendis ex
+      aspernatur quia quod est perspiciatis consectetur laboriosam rem saepe veniam voluptas beatae nam deleniti rerum
+      ullam fugiat. Dignissimos odit architecto commodi perspiciatis, magnam consectetur accusantium nesciunt molestiae
+      enim natus voluptates deserunt? Veritatis id deserunt expedita rem alias asperiores fugit neque non necessitatibus
+      praesentium vero corporis illum voluptatibus, iure at ullam hic provident suscipit natus culpa aliquam ipsum?
+      Necessitatibus voluptatem sunt adipisci consectetur possimus tempore a non? Consectetur dolor quasi quas ex nemo
+      ad nisi sequi illum adipisci veniam temporibus, optio nobis quibusdam inventore nulla odio in error repellendus
+      eos porro! Porro laudantium eligendi sit id repellat. Consectetur, veniam enim temporibus aliquid sed asperiores
+      accusantium nostrum fugiat assumenda magni soluta omnis sequi? Eveniet, vero eligendi! Labore facilis eveniet
+      possimus a iure harum maxime tenetur nam sapiente velit laborum magni ipsam quia ullam aliquid inventore
+      cupiditate, aut nulla. Nulla quas itaque reprehenderit natus, dicta commodi. Sed vero animi, ab ea eveniet
+      expedita molestias, possimus eos vitae beatae quae soluta harum saepe inventore consectetur numquam assumenda qui
+      est praesentium aliquam ex ut unde. Esse pariatur maxime, quos expedita recusandae sed corrupti eveniet alias qui
+      totam accusantium iure? Obcaecati consectetur amet reprehenderit. Nisi vel magnam facilis? Quia consectetur
+      aspernatur libero sint assumenda alias, earum numquam eveniet consequatur iste necessitatibus illo minus repellat,
+      repudiandae ab quos commodi. Quos obcaecati, dolor cumque consequatur beatae optio quisquam facilis commodi
+      tempora vel cum illo unde delectus exercitationem, sapiente nesciunt architecto quasi harum rerum? Suscipit
+      dignissimos vitae excepturi enim quasi non autem saepe eum odit sed ipsa neque qui, numquam animi error, atque
+      incidunt sequi dicta repellendus! Illo quisquam saepe in sed enim non accusantium corporis earum temporibus
+      voluptatibus eum, pariatur assumenda eius doloribus dolore blanditiis excepturi hic? Fugit voluptate hic at
+      nesciunt id? Error quis, eaque quae sunt tempora fugit dicta, nobis harum vero accusantium voluptas laboriosam nam
+      mollitia iure ut animi recusandae, quasi eveniet at quidem modi a quas sapiente. Veritatis possimus sint expedita
+      quis repellat nihil, accusamus, quisquam ratione assumenda aliquid vitae? Iure culpa temporibus voluptatibus?
+      Recusandae aperiam consequatur quaerat iste ab ea quis a dolorem! Voluptates assumenda maiores voluptatem omnis
+      quod fugiat quam, amet officiis atque cupiditate, eum facere quidem ducimus eaque hic deserunt explicabo? Iusto
+      consequuntur nesciunt ullam. Quod beatae consequatur dolorum voluptate labore? Consectetur possimus ratione
+      dolores earum perspiciatis illum sapiente quos, doloribus saepe placeat ipsam culpa itaque dicta eos nihil illo!
+      Rem, neque repellendus? Consequuntur voluptates earum esse explicabo odit sit autem repellat sapiente magni, modi
+      sunt amet in sed fugit reiciendis repellendus aperiam sint quod iste suscipit, ipsum maxime quisquam odio ipsam.
+      Minima eos sed officiis velit, adipisci error, amet, dicta ea eveniet inventore magnam. Eveniet quis esse,
+      voluptate explicabo quidem vitae vero et, sunt totam nam praesentium culpa eos distinctio exercitationem earum
+      adipisci iste accusantium nisi blanditiis delectus veniam omnis, optio reiciendis. Temporibus magni adipisci at,
+      cumque maxime aspernatur reprehenderit aut quia odit quas molestiae nobis possimus tenetur, voluptate culpa! Dolor
+      non rerum nostrum porro dolores eum dignissimos amet consectetur quisquam consequuntur fuga atque earum minus
+      eligendi suscipit, aperiam facere aliquam possimus, quia dolore ipsam veniam vel corrupti aliquid. Cumque
+      consequatur earum incidunt eius quo corrupti quasi illum rerum ducimus. Omnis corrupti praesentium odit harum
+      similique iure saepe sunt, repudiandae, itaque ab eligendi consequuntur velit. Debitis non dicta cum molestiae,
+      maiores recusandae deserunt laboriosam libero tempora dignissimos omnis perferendis, soluta error perspiciatis
+      velit porro eum eveniet. Quibusdam, nostrum eos magni deserunt odit praesentium. Doloribus veniam recusandae rerum
+      ipsum! Cupiditate accusamus provident ad fugiat eveniet aspernatur exercitationem qui ab aperiam ullam voluptate,
+      perspiciatis reprehenderit harum, veritatis culpa est tempora maxime tempore totam magni dolor hic eaque repellat!
+      Ab quos eaque quasi omnis, a magnam perspiciatis animi, natus nemo iure doloribus id voluptatibus nesciunt itaque.
+      Rem illum quos saepe ratione maxime non perspiciatis cumque voluptatibus dolores beatae? Quis exercitationem a
+      consequatur quaerat placeat itaque accusamus impedit corporis quisquam! Enim architecto quisquam nisi
+      necessitatibus officia quaerat obcaecati deserunt, ab, fugit vitae sint tenetur magni aspernatur dolor provident
+      molestiae dolorem animi nam ullam rem perspiciatis accusantium ipsam soluta sunt? Totam sapiente quod natus animi
+      incidunt, delectus aperiam excepturi nulla ipsam unde quas voluptate optio, distinctio tempore aut quisquam
+      dolorum voluptatem! Enim id sit minima earum unde dolor officiis. Eveniet, alias quibusdam. Dolorum dolores odio
+      culpa quasi nostrum, magnam nisi, nihil assumenda ipsa explicabo quod, alias tempore nam minus dignissimos eum hic
+      consectetur est totam. Aperiam, earum ad minima quod, omnis, alias aliquam non eum possimus maiores repudiandae
+      eaque illum. Quod, quis corporis optio illo debitis sunt molestiae rerum. Voluptatibus quae corrupti aliquid!
+      Velit molestias saepe laborum sunt sapiente. Impedit earum dolorum perspiciatis dolore? Laboriosam ratione amet
+      molestias praesentium, quam quos vero numquam esse iste temporibus cupiditate, illo doloremque exercitationem
+      aspernatur tempore assumenda sit dolorem rerum? Optio, laudantium porro numquam nobis veritatis debitis, error
+      explicabo illum perspiciatis eveniet temporibus voluptatibus necessitatibus eum quos? Ipsum asperiores iure odit
+      temporibus ratione accusamus similique consectetur repudiandae, soluta, explicabo consequuntur ducimus impedit,
+      nemo unde ea saepe cupiditate nostrum. Quas incidunt neque nulla natus vero illum numquam vitae optio at delectus
+      similique dicta beatae nobis, ipsa maiores ducimus reprehenderit quo debitis! Consequatur pariatur delectus vel
+      voluptas veritatis asperiores possimus voluptatum, architecto dignissimos aperiam cumque dicta non neque?
+      Repudiandae asperiores dignissimos, deleniti impedit natus fuga ut molestiae laboriosam dolor aspernatur animi
+      eveniet quo amet consectetur deserunt nulla accusamus odio eaque! Et at dignissimos aperiam, voluptates delectus
+      repellendus, unde numquam nam voluptas ducimus, non recusandae totam ipsam! Autem eveniet consequatur dignissimos,
+      sapiente, eos animi natus, minima dolores fugit velit veniam assumenda provident. Ullam reprehenderit magni
+      corporis impedit veniam, nesciunt laboriosam reiciendis consequatur, delectus id et nam nostrum. Ea, odit eius
+      perferendis ex dignissimos tenetur. Exercitationem reiciendis architecto illo molestiae animi hic ad quaerat
+      beatae sed aliquid! Recusandae praesentium aliquid doloremque iure ducimus laboriosam itaque cumque est nemo.
+      Totam.
+    </p>
+    <a href="#p1">якорная ссылка на 1 абзац</a>
+    <a href="#p2">якорная ссылка на 2 абзац</a>
+    <a href="test.html#p3" target="_blank">якорная ссылка на 3 абзац другой страницы</a>
+
+    <p style="margin-top: 30px;">ниже картинка ссылка</p>
+    <a href="https://www.yandex.ru" target="_blank">
+      <img width="200" height="200" src="https://geektips.ru/wp-content/uploads/2016/01/yandex-android-logo.png"
+        alt="логотип яндекса">
+    </a>
+    <a href="tel:+79203913280" style="margin-top: 40px;">Ссылка на телефон 89203913280</a>
+  </section>
+  <section>
+    <p style="margin-bottom: 400px;" id="face">face</p>
+    <h2 class="title">Практическое задание №3: Ссылки</h2>
+    <a href="wood.html#wood" target="_blank">к wood</a>
+    <a href="bird.html#bird" target="_blank">к bird</a>
+    <a href="#face">к face</a>
+  </section>
+  <section>
+    <h2 class="title">Практическое задание №4: Тег &lt;area&gt;: создание фигур</h2>
+    <div class="wrapper-center">
+      <img usemap="#figures" src="figures.png" width="600" height="200" alt="фигуры" />
+      <map name="figures" id="figures">
+        <area shape="circle" coords="70,75,60" title="круг">
+        <area shape="rect" coords="200,15,347,160" title="прямоугольник">
+        <area title="звезда" shape="poly"
+          coords="485,10,505,70,565,70,515,110,543,175,485,130,427,175,455,110,405,70,465,70">
+      </map>
+
+    </div>
+  </section>
+  <section>
+    <h2 class="title">Практическое задание №5: Тег &lt;area&gt;: создание карты</h2>
+    <div class="wrapper-center">
+      <img width="500" height="400"
+        src="https://image.jimcdn.com/app/cms/image/transf/dimension=452x10000:format=jpg/path/s6b61d3476b988e81/image/ia63b71b08cb00091/version/1622835703/%D0%BD%D0%BE%D1%87%D0%BD%D0%BE%D0%B5-%D0%BA%D0%B0%D1%84%D0%B5-%D1%81%D0%B0%D0%BC%D1%8B%D0%B5-%D0%B8%D0%B7%D0%B2%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B5-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D1%8B-%D0%B2%D0%B0%D0%BD-%D0%B3%D0%BE%D0%B3%D0%B0.jpg"
+        alt="" usemap="#picture" />
+      <map name="picture">
+        <area href="https://www.dns-shop.ru/catalog/17a9d33516404e77/nastennye-chasy/" title="Часы" target="_blank"
+          shape="circle" coords="168,55,20">
+        <area href="https://dg-home.ru/blog/kak-stilno-oformit-arku_b333583/" target="_blank" title="Арка" shape="rect"
+          coords="120,85,165,175">
+        <area href="http://wp.wiki-wiki.ru/wp/index.php/%D0%91%D0%B8%D0%BB%D1%8C%D1%8F%D1%80%D0%B4" target="_blank"
+          title="Бильярд" shape="poly" coords="180,170,250,165,370,220,330,290,290,320,212,252">
+      </map>
+    </div>
+  </section>
+  <section>
+    <h2 class="title">Практическое задание №6: Теги &lt;progress&gt; и &lt;meter&gt;</h2>
+    <div style="margin-left: 150px;width:200px">
+      <p style="width:30%" data-value="30">&nbsp;</p>
+      <progress max="1" value="0.3" class="progress">
+        <div class="progress-bar">
+          <span style="width: 30%">0.3 из 1</span>
+        </div>
+      </progress>
+      <br>
+      <span>0.1 из 1: meter&nbsp;<meter style="width:200px" min="0" low="0.25" optimum="0.45" high="0.6" max="1"
+          value="0.1"></meter></span>
+
+    </div>
+  </section>
+  <section>
+    <h2 class="title">Практическое задание №7: Тег &lt;canvas&gt;</h2>
+    <div class="wrapper-center">
+
+      <canvas id="canvas" width="600" height="800"></canvas>
+    </div>
+  </section>
+  <script type="text/javascript" src="https://sycret.ru/test/onlinesale/script.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

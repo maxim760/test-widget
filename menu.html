@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      border-bottom: 2px solid #aaa;
+      padding: 5px;
+      width: 100%;
+      text-align: center;
+      list-style: none;
+      font-size: 25px;
+      box-sizing: border-box;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease-in;
+      background-color: white;
+      transition-property: color background-color;
+    }
+
+    li.active,
+    li:hover {
+      background-color: #aaa;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li data-id="1">страница 1 </li>
+    <li data-id="2">страница 2 </li>
+    <li data-id="3">страница 3 </li>
+    <li data-id="4">страница 4 </li>
+  </ul>
+  <script>
+    console.log(window.innerWidth, window, "MENU")
+    const list = document.querySelectorAll("li")
+    const clearClasses = () => {
+      list.forEach(item => item.classList.remove("active"))
+    }
+    list.forEach((item) => {
+      item.addEventListener("click", () => {
+        localStorage.setItem("menu", item.dataset.id)
+        clearClasses()
+        item.classList.add("active")
+      })
+    })
+  </script>
+</body>
+
+</html>
