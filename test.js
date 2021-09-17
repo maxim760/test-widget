@@ -92,6 +92,7 @@ function setCoords(frame, position, width, height) {
 
 function removeFrame() {
   console.log("remove")
+  document.body.style.overflow = null
   const frame = document.querySelector("#wrapper-sycret-frame")
   if (frame) {
     frame.remove()
@@ -101,6 +102,7 @@ function removeFrame() {
 function openSycretFrame(options) {
   window.removeEventListener('resize', onResize)
   window.removeEventListener('message', onMessage)
+  document.body.style.overflow = "hidden"
   window.addEventListener("message", (event) => {
     const data = event.data || {}
     console.log({data})
