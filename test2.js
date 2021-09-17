@@ -1,1 +1,131 @@
-"use strict";var _excluded=["width","height","position"];function _objectWithoutProperties(e,t){if(null==e)return{};var i,r=_objectWithoutPropertiesLoose(e,t);if(Object.getOwnPropertySymbols)for(var n=Object.getOwnPropertySymbols(e),o=0;o<n.length;o++)i=n[o],0<=t.indexOf(i)||Object.prototype.propertyIsEnumerable.call(e,i)&&(r[i]=e[i]);return r}function _objectWithoutPropertiesLoose(e,t){if(null==e)return{};for(var i,r={},n=Object.keys(e),o=0;o<n.length;o++)i=n[o],0<=t.indexOf(i)||(r[i]=e[i]);return r}function getWidget(){return document.querySelector("#sycret-widget")}window.addEventListener("message",onMessage);var height={small:"200px",big:"400px"},isStarted=!1;function getHeightBeforeStart(){return window.innerWidth<600?height.small:height.big}window.addEventListener("resize",onResize);var widget=getWidget();function onMessage(e){var t=e.data;!t||t&&"sycret"!==t.type||(e=getWidget(),isStarted="start"===t.status?(e.style.height=height.big,!0):(e.style.height=getHeightBeforeStart(),!1))}function onResize(){var e=getWidget();e&&(isStarted&&600<=window.innerWidth?e.style.height=height.big:!isStarted&&window.innerWidth<600&&(e.style.height=height.small))}function parseQuery(t){return Object.keys(t).filter(function(e){return t[e]}).map(function(e){return"".concat(e,"=").concat(t[e])}).join("&")}function openSycretCertificate(e){e=parseQuery(e);window.open("https://sycret.ru/service/onlinesale/?".concat(e),"_blank")}function setCoords(e,t,i,r){"top"===t?(e.style.top=0,e.style.left=0,e.style.right=0,e.style.width="100%",e.style.height=Math.min(r,window.innerHeight)+"px"):"bottom"===t?(e.style.bottom=0,e.style.left=0,e.style.right=0,e.style.width="100%",e.style.height=Math.min(r,window.innerHeight)+"px"):("left"===t?(e.style.bottom=0,e.style.top=0,e.style.height="100%",e.style.left=0):(e.style.bottom=0,e.style.top=0,e.style.height="100%",e.style.right=0),e.style.width=Math.min(i,window.innerWidth)+"px")}function removeFrame(){document.body.style.overflow=null;var e=document.querySelector("#wrapper-sycret-frame");e&&e.remove()}function openSycretFrame(e){window.removeEventListener("resize",onResize),window.removeEventListener("message",onMessage),document.body.style.overflow="hidden",window.addEventListener("message",function(e){e=e.data||{};"sycret"===e.type&&"close"===e.status&&removeFrame()});var t=e.width,i=e.height,r=e.position,n=_objectWithoutProperties(e,_excluded),o=document.createElement("div"),e=document.createElement("iframe");o.style.position="fixed",o.style.top=0,o.style.right=0,o.style.bottom=0,o.style.left=0,o.style.background="rgba(0, 0, 0, 0.3)",o.style.zIndex=9999,o.setAttribute("id","wrapper-sycret-frame");n=parseQuery(n);e.setAttribute("src","https://sycret.ru/service/onlinesale/?".concat(n,"&close=1")),e.setAttribute("frameborder","no"),e.style.position="absolute",e.addEventListener("click",function(e){return e.stopPropagation()}),o.addEventListener("click",removeFrame),setCoords(e,r,t,i),o.appendChild(e),document.body.appendChild(o)}widget&&(widget.style.height=getHeightBeforeStart());
+window.addEventListener('message', onMessage)
+function getWidget() {
+  return document.querySelector('#sycret-widget')
+}
+const height = {
+  small: '200px',
+  big: '400px',
+}
+
+let isStarted = false
+
+window.addEventListener('resize', onResize)
+
+function getHeightBeforeStart() {
+  return window.innerWidth < 600 ? height.small : height.big
+}
+
+const widget = getWidget()
+if (widget) {
+  widget.style.height = getHeightBeforeStart()
+}
+function onMessage(e) {
+  const data = e.data
+  if (!data || (data && data.type !== 'sycret')) {
+    return
+  }
+  const widget = getWidget()
+  if (data.status === 'start') {
+    widget.style.height = height.big
+    isStarted = true
+  } else {
+    widget.style.height = getHeightBeforeStart()
+    isStarted = false
+  }
+}
+
+function onResize() {
+  const widget = getWidget()
+  if (!widget) {
+    return
+  }
+  if (isStarted && window.innerWidth >= 600) {
+    widget.style.height = height.big
+    return
+  }
+  if (!isStarted && window.innerWidth < 600) {
+    widget.style.height = height.small
+  }
+}
+
+function parseQuery(options) {
+  return Object.keys(options)
+    .filter((k) => options[k])
+    .map((k) => `${k}=${options[k]}`)
+    .join('&')
+}
+
+function openSycretCertificate(options) {
+  var query = parseQuery(options)
+  window.open(`https://sycret.ru/service/onlinesale/?${query}`, '_blank')
+}
+
+function setCoords(frame, position, width, height) {
+  if (position === 'top') {
+    frame.style.top = 0
+    frame.style.left = 0
+    frame.style.right = 0
+    frame.style.width = '100%'
+    frame.style.height = Math.min(height, window.innerHeight) + 'px'
+  } else if (position === 'bottom') {
+    frame.style.bottom = 0
+    frame.style.left = 0
+    frame.style.right = 0
+    frame.style.width = '100%'
+    frame.style.height = Math.min(height, window.innerHeight) + 'px'
+  } else if (position === 'left') {
+    frame.style.bottom = 0
+    frame.style.top = 0
+    frame.style.height = '100%'
+    frame.style.left = 0
+    frame.style.width = Math.min(width, window.innerWidth) + 'px'
+  } else {
+    frame.style.bottom = 0
+    frame.style.top = 0
+    frame.style.height = '100%'
+    frame.style.right = 0
+    frame.style.width = Math.min(width, window.innerWidth) + 'px'
+  }
+}
+
+function removeFrame() {
+  document.body.style.overflow = null
+  const frame = document.querySelector("#wrapper-sycret-frame")
+  if (frame) {
+    frame.remove()
+  }
+}
+
+function openSycretFrame(options) {
+  window.removeEventListener('resize', onResize)
+  window.removeEventListener('message', onMessage)
+  document.body.style.overflow = "hidden"
+  window.addEventListener("message", (event) => {
+    const data = event.data || {}
+    if (data.type === "sycret" && data.status === "close") {
+      removeFrame()
+    }
+  })
+
+  const { width, height, position, ...queryObj } = options
+  
+  const div = document.createElement('div')
+  const frame = document.createElement('iframe')
+  div.style.position = 'fixed'
+  div.style.top = 0
+  div.style.right = 0
+  div.style.bottom = 0
+  div.style.left = 0
+  div.style.background = 'rgba(0, 0, 0, 0.3)'
+  div.style.zIndex = 9999
+  div.setAttribute('id', 'wrapper-sycret-frame')
+  const query = parseQuery(queryObj)
+  frame.setAttribute('src', `https://sycret.ru/service/onlinesale/?${query}&close=1`)
+  frame.setAttribute('frameborder', `no`)
+  frame.style.position = 'absolute'
+  frame.addEventListener('click', (e) => e.stopPropagation())
+  div.addEventListener('click', removeFrame)
+  setCoords(frame, position, width, height)
+  div.appendChild(frame)
+  document.body.appendChild(div)
+}
