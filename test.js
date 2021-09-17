@@ -102,6 +102,7 @@ function removeFrame() {
 function openSycretFrame(options) {
   window.removeEventListener('resize', onResize)
   window.removeEventListener('message', onMessage)
+  console.log("now hidden")
   document.body.style.overflow = "hidden"
   window.addEventListener("message", (event) => {
     const data = event.data || {}
